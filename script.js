@@ -1,20 +1,21 @@
-// declare friends, locations and weapons
+// // declare friends, locations and weapons
 var FRIEND_NAME = ['Marrea', 'Tavanya', 'Sonja', 'Debra', 'Mark'];
-var LOCATION_NAME = ['hotel lobby','library','gym','school lobby','classroom','grocery store', 'mailroom', 'backyard', 'bathroom', 'office'];
-var WEAPON_NAME = ['rope','knife','spoon','game controller','iron','Nun-Chucks','rock','paper','scissors','laser','banana',
-                    'shark tooth','glue gun','Uno Card','battery','usb','guitar','drumsticks','panio petal','antenna',];
+var WEAPON_NAME = ['rope', 'knife', 'spoon', 'game controller', 'iron', 'Nun-Chucks', 'rock', 'paper', 'scissors', 'laser', 'banana',
+                    'shark tooth', 'glue gun', 'Uno Card', 'battery', 'usb', 'guitar', 'drumsticks', 'panio petal', 'antenna',];
+var LOCATION_NAME = ['hotel lobby', 'library', 'gym', 'school lobby', 'classroom', 'grocery store', 'mailroom', 'backyard', 'bathroom', 'office'];
 
-// list accusation and click alert 
-for (var i=1; i<101; i++)  
-// for (var friends = 0; friends<FRIEND_NAME.length; friends++)
-{
-    $('<div><h3>' + 'Acccusation ' + i +'</h2></div>').appendTo('body').click(function(){
-        alert ('I accuse '+ FRIEND_NAME[friend] +'with the '+ WEAPON_NAME + 'in the '+ LOCATION_NAME)
-    });
+
+for (var i = 0; i < 100; i++) {
+    stateMent(i);
 };
 
-    var friend = FRIEND_NAME.length;
-    console.log(friend);
-
-
-
+function stateMent(num) {
+    var header = $('<div><h3>' + 'Acccusation ' + (num + 1) + '</h2></div>');
+    header.click(function () {
+        var f = num % FRIEND_NAME.length;
+        var w = num % WEAPON_NAME.length
+        var l = num % LOCATION_NAME.length;
+        alert('Acccusation ' + ((num + 1) + ':  I accuse ' + FRIEND_NAME[f] + ' with the ' + WEAPON_NAME[w] + ' in the ' + LOCATION_NAME[l]));
+    });
+    $('body').append(header);
+};
